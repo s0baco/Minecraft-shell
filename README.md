@@ -1,2 +1,7 @@
 # Minecraft-shell
-s0baco's Minecraft Server shell script. 
+-----
+個人的に作ったMinecraft用シェルスクリプトです。
+いろいろなところ見て動けばいいやって感じで作ったので適当です・・・。
+
+Vanilla鯖でもバックアップ求められたのでバックアップシェルも作ってます。
+適当にcrontabででも定期的に動かしてやってください。
