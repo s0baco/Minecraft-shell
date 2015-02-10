@@ -2,7 +2,7 @@
 
 . ./minecraft.conf
 
-screen -S ${SESSION_NAME} -p 0 -X eval 'stuff "say SERVER BACKUP START.\015"'
+screen -S ${SESSION_NAME} -p 0 -X eval 'stuff "say ${HEADER} WORLD BACKUP START.\015"'
 screen -S ${SESSION_NAME} -p 0 -X eval 'stuff "save-all\015"'
 
 # mkdir
@@ -20,5 +20,5 @@ zip -r world_$BACKUP_DATE.zip ${TEMP_DIR}
 # del temp
 rm -rf ${TEMP_DIR}
 
-screen -S ${SESSION_NAME} -p 0 -X eval 'stuff "say SERVER BACKUP COMPLETE.\015"'
+screen -S ${SESSION_NAME} -p 0 -X eval 'stuff "say $HEADER WORLD BACKUP COMPLETE.\015"'
 
