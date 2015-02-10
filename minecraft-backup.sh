@@ -8,6 +8,10 @@ screen -S ${SESSION_NAME} -p 0 -X eval 'stuff "save-all\015"'
 # mkdir
 mkdir ${TEMP_DIR}
 
+if [ ! -d ${BACKUP_DIR} ]
+then
+	mkdir ${BACKUP_DIR}
+fi
 # copy
 cp -Rf ${COPY_DIR} ${TEMP_DIR}
 
