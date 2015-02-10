@@ -1,10 +1,12 @@
 # Minecraft-shell
 -----
-個人的に作ったMinecraft用シェルスクリプトです。
-いろいろなところ見て動けばいいやって感じで作ったので適当です・・・。
+Minecraft用シェルスクリプトです。  
 
-Vanilla鯖でもバックアップ求められたのでバックアップシェルも作ってます。
-適当にcrontabででも定期的に動かしてやってください。
+Vanilla鯖でもバックアップ求められたのでバックアップシェルも作ってます。  
+適当にcronで定期的に実行すれば大丈夫だと思います。  
+
+サーバーのファイル名やバックアップディレクトリ等はminecraft.confに記述するようになっています。
+適切なファイル名やディレクトリを指定してください。
 
 ## 前提
 * screen
@@ -21,17 +23,17 @@ Vanilla鯖でもバックアップ求められたのでバックアップシェ�
 5. minecraft-stop.sh を実行するとサーバーを終了します。
 6. minecraft-backup.sh を実行すると指定ディレクトリをバックアップします。
 
-### その他
-Minecraft Forgeを使ったMOD鯖でも、minecraft.conf内 SERVER_NAME を書き換えることで使えます。
+## その他
+Minecraft Forgeを使ったMOD鯖でも、minecraft.conf内 SERVER_NAME を書き換えることで使えます。  
 おそらく他の環境 (Bukkit, Spigot, Cauldron, Glowstone?, Sponge? etc..) でも使えると思います。
 
-#### 作者
+## 作者
 [@s0baco](http://twitter.com/s0baco)
 
-##### ライセンス
+## ライセンス
 MIT Licenseです。
 
-----------
-Copyright &copy; 2015 s0baco
+-----
+Copyright &copy; 2015 s0baco  
 Licensed under the [MIT License][MIT]
 [MIT]: http://www.opensource.org/licenses/mit-license.php
