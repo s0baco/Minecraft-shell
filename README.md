@@ -1,27 +1,37 @@
 # Minecraft-shell
 -----
-ŒÂl“I‚Éì‚Á‚½Minecraft—pƒVƒFƒ‹ƒXƒNƒŠƒvƒg‚Å‚·B
-‚¢‚ë‚¢‚ë‚È‚Æ‚±‚ëŒ©‚Ä“®‚¯‚Î‚¢‚¢‚â‚Á‚ÄŠ´‚¶‚Åì‚Á‚½‚Ì‚Å“K“–‚Å‚·EEEB
+å€‹äººçš„ã«ä½œã£ãŸMinecraftç”¨ã‚·ã‚§ãƒ«ã‚¹ã‚¯ãƒªãƒ—ãƒˆã§ã™ã€‚
+ã„ã‚ã„ã‚ãªã¨ã“ã‚è¦‹ã¦å‹•ã‘ã°ã„ã„ã‚„ã£ã¦æ„Ÿã˜ã§ä½œã£ãŸã®ã§é©å½“ã§ã™ãƒ»ãƒ»ãƒ»ã€‚
 
-VanillaI‚Å‚àƒoƒbƒNƒAƒbƒv‹‚ß‚ç‚ê‚½‚Ì‚ÅƒoƒbƒNƒAƒbƒvƒVƒFƒ‹‚àì‚Á‚Ä‚Ü‚·B
-“K“–‚Écrontab‚Å‚Å‚à’èŠú“I‚É“®‚©‚µ‚Ä‚â‚Á‚Ä‚­‚¾‚³‚¢B
+Vanillaé¯–ã§ã‚‚ãƒãƒƒã‚¯ã‚¢ãƒƒãƒ—æ±‚ã‚ã‚‰ã‚ŒãŸã®ã§ãƒãƒƒã‚¯ã‚¢ãƒƒãƒ—ã‚·ã‚§ãƒ«ã‚‚ä½œã£ã¦ã¾ã™ã€‚
+é©å½“ã«crontabã§ã§ã‚‚å®šæœŸçš„ã«å‹•ã‹ã—ã¦ã‚„ã£ã¦ãã ã•ã„ã€‚
 
-# ‘O’ñ
-Minecraft (server)
-screen
+## å‰æ
+* screen
+* Minecraft server
+  - Minecraft Forge (Universal)
+  - Bukkit (Spigot etc.)
+  - Cauldron (MCPC+ ?)
 
-# g‚¢•û
-1. server.jar ‚ÌƒfƒBƒŒƒNƒgƒŠ‚ÉˆÚ“®‚µ‚Ü‚·B
-2. git clone‚Æ‚©‚Ìè’i‚Å‚±‚ÌƒVƒFƒ‹ƒXƒNƒŠƒvƒg‚½‚¿‚ğ’u‚«‚Ü‚·B
-3. start, stop, backup ƒVƒFƒ‹‚Ì•Ï”‚ğ‘‚«Š·‚¦‚Ü‚·B
-4. minecraft-start.sh ‚ğ’@‚¯‚ÎI‚ğŠJ‚«‚Ü‚·B
-5. minecraft-stop.sh ‚ğ’@‚¯‚ÎI‚ğ•Â‚¶‚Ü‚·B
-6. minecraft-backup.sh ‚ğ’@‚¯‚Îƒ[ƒ‹ƒhƒf[ƒ^‚ğƒoƒbƒNƒAƒbƒv‚Å‚«‚Ü‚·B
-7. minecraft-backup.sh ‚ğcron‚Å“®‚©‚·‚æ‚¤‚Éİ’è‚µ‚Ü‚·B
+## ä½¿ã„æ–¹
+1. minecraft-server.{version}.jar ç­‰ã€ã‚µãƒ¼ãƒãƒ¼ã®å®Ÿè¡Œãƒ•ã‚¡ã‚¤ãƒ«ãŒã‚ã‚‹ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã«ç§»å‹•ã—ã¾ã™ã€‚
+2. git clone ã™ã‚‹ã€‚
+3. minecraft.conf ã®å¤‰æ•°ã‚’æ›¸ãæ›ãˆã¾ã™ã€‚
+4. minecraft-start.sh ã‚’å®Ÿè¡Œã™ã‚‹ã¨ã‚µãƒ¼ãƒãƒ¼ã‚’èµ·å‹•ã—ã¾ã™ã€‚
+5. minecraft-stop.sh ã‚’å®Ÿè¡Œã™ã‚‹ã¨ã‚µãƒ¼ãƒãƒ¼ã‚’çµ‚äº†ã—ã¾ã™ã€‚
+6. minecraft-backup.sh ã‚’å®Ÿè¡Œã™ã‚‹ã¨æŒ‡å®šãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã‚’ãƒãƒƒã‚¯ã‚¢ãƒƒãƒ—ã—ã¾ã™ã€‚
 
-# ƒ‰ƒCƒZƒ“ƒX
-MIT License‚Å‚·B
-‚±‚ñ‚È‚à‚Ì‚Éƒ‰ƒCƒZƒ“ƒX‚àƒNƒ\‚à‚È‚¢‹C‚ª‚µ‚Ü‚·‚ªEEEB
+### ãã®ä»–
+Minecraft Forgeã‚’ä½¿ã£ãŸMODé¯–ã§ã‚‚ã€minecraft.confå†… SERVER_NAME ã‚’æ›¸ãæ›ãˆã‚‹ã“ã¨ã§ä½¿ãˆã¾ã™ã€‚
+ãŠãã‚‰ãä»–ã®ç’°å¢ƒ (Bukkit, Spigot, Cauldron, Glowstone?, Sponge? etc..) ã§ã‚‚ä½¿ãˆã‚‹ã¨æ€ã„ã¾ã™ã€‚
 
-# ìÒ
-@s0baco
+#### ä½œè€…
+[@s0baco](http://twitter.com/s0baco)
+
+##### ãƒ©ã‚¤ã‚»ãƒ³ã‚¹
+MIT Licenseã§ã™ã€‚
+
+----------
+Copyright &copy; 2015 s0baco
+Licensed under the [MIT License][MIT]
+[MIT]: http://www.opensource.org/licenses/mit-license.php
