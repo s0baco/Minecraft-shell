@@ -16,12 +16,17 @@ Vanilla鯖でもバックアップ求められたのでバックアップシェ�
   - Cauldron (MCPC+ ?)
 
 ## 使い方
-1. minecraft-server.{version}.jar 等、サーバーの実行ファイルがあるディレクトリに移動します。
-2. git clone する。
-3. minecraft.conf の変数を書き換えます。
-4. minecraft-start.sh を実行するとサーバーを起動します。
-5. minecraft-stop.sh を実行するとサーバーを終了します。
-6. minecraft-backup.sh を実行すると指定ディレクトリをバックアップします。
+1. git clone する。
+2. cd Minecraft-shell で Minecraft-shell に移動する。
+3. chmod +x *.sh を実行して、実行可能にする。
+4. minecraft-server.<version>.jar 等、サーバー.jarを置く。
+5. server.properties を書き換えます。
+5. minecraft.conf を書き換えます。
+6. minecraft-start.sh を実行するとサーバーを起動します。
+7. 初回起動時のみ、eula.txt を書き換えて、 eula=true にします。 
+8. minecraft-stop.sh を実行するとサーバーを終了します。
+9. minecraft-restart.sh を実行するとサーバーを再起動します。
+10. minecraft-backup.sh を実行すると指定ディレクトリをバックアップします。
 
 ## その他
 Minecraft Forgeを使ったMOD鯖でも、minecraft.conf内 SERVER_NAME を書き換えることで使えます。  
