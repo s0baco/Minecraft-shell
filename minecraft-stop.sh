@@ -4,14 +4,12 @@
 
 screen -S $SESSION_NAME -p 0 -X eval 'stuff "say $HEADER SERVER STOPPING...\015"'
 
-i=0
-while [ "$i" -le "$WAIT" ]
-do
-	h=$WAIT-$i
-	screen -S $SESSION_NAME -p 0 -X eval 'stuff "say $HEADER $h...\015"'
-	echo "$h..."
-	sleep 1
+for i in  $(seq $WAIT -1 1); do
+    echo  "$i..."
+    screen -S $SESSION_NAME -p 0 -X eval 'stuff "say $HEADER $i...\015"'
+    sleep  1
 done
+echo 0
 
 screen -S $SESSION_NAME -p 0 -X eval 'stuff "save-all\015"'
 screen -S $SESSION_NAME -p 0 -X eval 'stuff "say $HEADER WORLD SAVING...\015"'
