@@ -9,9 +9,9 @@ function send_cmd {
 }
 
 function kill_minecraft {
-  send_cmd 'stuff "save-all\015"'
-  send_cmd 'stuff "say $HEADER WORLD SAVING...\015"'
-  send_cmd 'stuff "stop\015"'
+  send_cmd "stuff \"save-all\015\""
+  send_cmd "stuff \"say $HEADER WORLD SAVING...\015\""
+  send_cmd "stuff \"stop\015\""
 }
 
 function start_minecraft {
@@ -19,12 +19,12 @@ function start_minecraft {
 }
 
 function stop_minecraft {
-  send_cmd 'stuff "say $HEADER SERVER STOPPING...\015"'
+  send_cmd "stuff \"say $HEADER SERVER STOPPING...\015\""
   i=$WAIT
   while [[ $i != 0 ]]; do
     echo "$i..."
-    send_cmd 'stuff "say $HEADER $i...\015"'
-    $i = $(( $i - 1 ))
+    send_cmd "stuff \"say $HEADER $i...\015\""
+    i=$(($i-1))
     sleep 1
   done
   echo "0"
@@ -35,8 +35,8 @@ function stop_minecraft {
 }
 
 function backup_minecraft {
-  send_cmd 'stuff "say $HEADER WORLD BACKUP START.\015"'
-  send_cmd 'stuff "save-all\015"'
+  send_cmd "stuff \"say $HEADER WORLD BACKUP START.\015\""
+  send_cmd "stuff \"save-all\015\""
 
   if [ ! -d $BACKUP_DIR ]; then
     mkdir $BACKUP_DIR
@@ -53,7 +53,7 @@ function backup_minecraft {
   rm -rf $TEMP_DIR
   find $BACKUP_DIR -type f -mtime $PERIOD -exec rm -f '{}' ';'
 
-  send_cmd 'stuff "say $HEADER WORLD BACKUP COMPLETE.\015"'
+  send_cmd "stuff \"say $HEADER WORLD BACKUP COMPLETE.\015\""
 }
 
 # ./minecraft.sh 
@@ -78,14 +78,14 @@ case "$action" in
     stop_minecraft
     ;;
   "restart" )
-    send_cmd 'stuff "say $HEADER SERVER RESTERT...\015"'
+    send_cmd "stuff \"say $HEADER SERVER RESTERT...\015\""
     stop_minecraft
     start_minecraft
 
     /etc/rc.d/init.d/crond restart
     ;;
   "kill" )
-     send_cmd 'stuff "say $HEADER SERVER RESTERT...\015"'
+     send_cmd "stuff \"say $HEADER SERVER RESTERT...\015\""
      kill_minecraft
      ;;
    "backup" )
