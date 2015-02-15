@@ -3,7 +3,7 @@
 source ./minecraft.conf
 
 # This function is send command to Minecraft session on screen
-# ex. send_cmd "say Hello")
+# ex. send_cmd "say Hello"
 function send_cmd {
   screen -S $SESSION_NAME -p 0 -X eval $1
 }
@@ -73,11 +73,9 @@ fi
 case "$action" in
   "start" )
     start_minecraft
-    break
     ;;
   "stop" )
     stop_minecraft
-    break
     ;;
   "restart" )
     send_cmd 'stuff "say $HEADER SERVER RESTERT...\015"'
@@ -85,16 +83,13 @@ case "$action" in
     start_minecraft
 
     /etc/rc.d/init.d/crond restart
-    break
     ;;
   "kill" )
      send_cmd 'stuff "say $HEADER SERVER RESTERT...\015"'
      kill_minecraft
-     break
      ;;
    "backup" )
      backup_minecraft
-     break
      ;;
    *)
      echo "Error: Invalid Operation" >&2
