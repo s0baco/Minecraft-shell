@@ -5,7 +5,7 @@ source ./minecraft.conf
 # This function is send command to Minecraft session on screen
 # ex. send_cmd "say Hello"
 function send_cmd {
-  screen -S $SESSION_NAME -p 0 -X eval "'stuff \"$1\015\"'"
+  screen -S $SESSION_NAME -p 0 -X eval 'stuff \"$1\015\"'
 }
 
 function kill_minecraft {
