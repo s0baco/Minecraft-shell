@@ -5,12 +5,21 @@ source ./minecraft.conf
 # This function is send command to Minecraft session on screen
 # ex. send_cmd "say Hello"
 function send_cmd {
-  screen -S $SESSION_NAME -p 0 -X eval 'stuff \"$1\015\"'
+  screen -S $SESSION_NAME -p 0 -X eval 'stuff "$1\015\"'
+}
+
+function send_msg {
+  screen -S $SESSION_NAME -p 0 -X eval 'stuff "say $HEADER $1\015"'
+}
+
+function hl_msg {
+  screen -S $SESSION_NAME -p 0 -X eval 'stuff "say $1\015"'
 }
 
 function kill_minecraft {
   send_cmd "save-all"
-  send_cmd "say $HEADER WORLD SAVING..."
+  #send_cmd "say $HEADER WORLD SAVING..."
+  send_cmd "say WORLD SAVING..."
   send_cmd "stop"
 }
 
@@ -19,11 +28,13 @@ function start_minecraft {
 }
 
 function stop_minecraft {
-  send_cmd "say $HEADER SERVER STOPPING..."
+  #send_cmd "say $HEADER SERVER STOPPING..."
+  send_cmd "say SERVER STOPPING..."
   i=$WAIT
   while [[ $i != 0 ]]; do
     echo "$i..."
-    send_cmd "say $HEADER $i..."
+    #send_cmd "say $HEADER $i..."
+    send_cmd "say $i..."
     i=$(($i-1))
     sleep 1
   done
@@ -35,7 +46,8 @@ function stop_minecraft {
 }
 
 function backup_minecraft {
-  send_cmd "say $HEADER WORLD BACKUP START."
+  #send_cmd "say $HEADER WORLD BACKUP START."
+  send_cmd "say WORLD BACKUP START."
   send_cmd "save-all"
 
   if [ ! -d $BACKUP_DIR ]; then
@@ -53,7 +65,8 @@ function backup_minecraft {
   rm -rf $TEMP_DIR
   find $BACKUP_DIR -type f -mtime $PERIOD -exec rm -f '{}' ';'
 
-  send_cmd "say $HEADER WORLD BACKUP COMPLETE."
+  #send_cmd "say $HEADER WORLD BACKUP COMPLETE."
+  send_cmd "say WORLD BACKUP COMPLETE."
 }
 
 # ./minecraft.sh 
@@ -78,14 +91,16 @@ case "$action" in
     stop_minecraft
     ;;
   "restart" )
-    send_cmd "say $HEADER SERVER RESTERT..."
+    #send_cmd "say $HEADER SERVER RESTERT..."
+    #send_cmd "say SERVER RESTERT..."
     stop_minecraft
     start_minecraft
 
     /etc/rc.d/init.d/crond restart
     ;;
   "kill" )
-     send_cmd "say $HEADER SERVER RESTERT..."
+     #send_cmd "say $HEADER SERVER STOPPING..."
+     send_cmd "say SERVER STOPPING..."
      kill_minecraft
      ;;
    "backup" )
