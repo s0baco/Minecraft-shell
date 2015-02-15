@@ -5,25 +5,25 @@ source ./minecraft.conf
 # This function is send command to Minecraft session on screen
 # ex. send_cmd "say Hello"
 function send_cmd {
-  screen -S $SESSION_NAME -p 0 -X eval $1
+  screen -S $SESSION_NAME -p 0 -X eval "'stuff \"$1\n\"'"
 }
 
 function kill_minecraft {
-  send_cmd "stuff \"save-all\015\""
-  send_cmd "stuff \"say $HEADER WORLD SAVING...\015\""
-  send_cmd "stuff \"stop\015\""
+  send_cmd "save-all"
+  send_cmd "say $HEADER WORLD SAVING..."
+  send_cmd "stop"
 }
 
 function start_minecraft {
-    screen -AmdS $SESSION_NAME java -Xmx${JVM_RAM_MAX}M -Xms${JVM_RAM_MIN}M $JVM_OPTION -jar $SERVER_NAME.jar nogui
+  screen -AmdS $SESSION_NAME java -Xmx${JVM_RAM_MAX}M -Xms${JVM_RAM_MIN}M $JVM_OPTION -jar $SERVER_NAME.jar nogui
 }
 
 function stop_minecraft {
-  send_cmd "stuff \"say $HEADER SERVER STOPPING...\015\""
+  send_cmd "say $HEADER SERVER STOPPING..."
   i=$WAIT
   while [[ $i != 0 ]]; do
     echo "$i..."
-    send_cmd "stuff \"say $HEADER $i...\015\""
+    send_cmd "say $HEADER $i..."
     i=$(($i-1))
     sleep 1
   done
@@ -35,8 +35,8 @@ function stop_minecraft {
 }
 
 function backup_minecraft {
-  send_cmd "stuff \"say $HEADER WORLD BACKUP START.\015\""
-  send_cmd "stuff \"save-all\015\""
+  send_cmd "say $HEADER WORLD BACKUP START."
+  send_cmd "save-all"
 
   if [ ! -d $BACKUP_DIR ]; then
     mkdir $BACKUP_DIR
@@ -53,7 +53,7 @@ function backup_minecraft {
   rm -rf $TEMP_DIR
   find $BACKUP_DIR -type f -mtime $PERIOD -exec rm -f '{}' ';'
 
-  send_cmd "stuff \"say $HEADER WORLD BACKUP COMPLETE.\015\""
+  send_cmd "say $HEADER WORLD BACKUP COMPLETE."
 }
 
 # ./minecraft.sh 
@@ -78,14 +78,14 @@ case "$action" in
     stop_minecraft
     ;;
   "restart" )
-    send_cmd "stuff \"say $HEADER SERVER RESTERT...\015\""
+    send_cmd "say $HEADER SERVER RESTERT..."
     stop_minecraft
     start_minecraft
 
     /etc/rc.d/init.d/crond restart
     ;;
   "kill" )
-     send_cmd "stuff \"say $HEADER SERVER RESTERT...\015\""
+     send_cmd "say $HEADER SERVER RESTERT..."
      kill_minecraft
      ;;
    "backup" )
