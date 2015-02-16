@@ -40,7 +40,7 @@ $ ./minecraft.sh start
 
 ## 5. eula.txt を書き換えます。
 # 初回起動時のみ必要です。一度書き換えたら今後不要な手順になります。
-$ vi eula.txt
+$ echo eula=true >> eula.txt
 
 ## 6-7. 設定ファイルを書き換えます。
 $ vi server.properties
