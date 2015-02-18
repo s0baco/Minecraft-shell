@@ -1,5 +1,4 @@
 # Minecraft-shell
-## 安定版コミット： [commit-4c65a85](https://github.com/s0baco/Minecraft-shell/commit/4c65a8557871da26b86ff348e8cda1406ff190a1)
 -----
 Minecraft用シェルスクリプトです。  
 
