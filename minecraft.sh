@@ -2,6 +2,8 @@
 
 source ./minecraft.conf
 
+BACKUP_DATE=`date "+%Y%m%d%H%M"`
+
 # This function is send command to Minecraft session on screen
 # ex. send_cmd "say Hello"
 function send_cmd {
@@ -50,10 +52,10 @@ function backup_minecraft {
   send_cmd "save-all"
 
   if [ ! -d $BACKUP_DIR ]; then
-    mkdir $BACKUP_DIR
+    mkdir -p $BACKUP_DIR
   fi
 
-  mkdir $TEMP_DIR
+  mkdir -p $TEMP_DIR
 
   cp -Rf $COPY_DIR $TEMP_DIR
 
