@@ -97,6 +97,13 @@ case "$action" in
     send_msg "SERVER RESTERT..."
     stop_minecraft
     start_minecraft
+    ;;
+  "cron" )
+    #send_cmd "say $HEADER SERVER RESTERT..."
+    #send_cmd "say SERVER RESTERT..."
+    send_msg "SERVER RESTERT..."
+    stop_minecraft
+    start_minecraft
 
     # TODO: systemctl & service
     #if [ -n "`which systemctl`" ]; then
