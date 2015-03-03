@@ -59,11 +59,14 @@ function backup_minecraft {
 
   cp -Rf $COPY_DIR $TEMP_DIR
 
-  cd $BACKUP_DIR
+  cd $TEMP_DIR
 
-  zip -r world_$BACKUP_DATE.zip $TEMP_DIR
+  zip -r backup_$BACKUP_DATE.zip ./
+
+  mv backup_$BACKUP_DATE.zip $BACKUP_DIR
 
   rm -rf $TEMP_DIR
+  
   find $BACKUP_DIR -type f -mtime $PERIOD -exec rm -f '{}' ';'
 
   #send_cmd "say $HEADER WORLD BACKUP COMPLETE."
