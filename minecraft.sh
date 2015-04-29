@@ -25,7 +25,7 @@ function kill_minecraft {
 }
 
 function start_minecraft {
-  screen -AmdS $SESSION_NAME java -Xmx${JVM_RAM_MAX}M -Xms${JVM_RAM_MIN}M $JVM_OPTION -jar $SERVER_NAME.jar nogui
+  screen -AmdS $SESSION_NAME java $JVM_OPTION -jar $SERVER_NAME.jar nogui
 }
 
 function stop_minecraft {
