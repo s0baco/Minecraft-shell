@@ -31,8 +31,8 @@ $ cd Minecraft-shell
 $ chmod +x minecraft.sh
 
 ## 3. サーバーのjarファイルをダウンロードする。
-# 以下のサンプルではVer.1.8.1を置いています。
-$ wget https://s3.amazonaws.com/Minecraft.Download/versions/1.8.1/minecraft_server.1.8.1.jar
+# 以下のサンプルではVer.1.8.8を置いています。
+$ wget https://s3.amazonaws.com/Minecraft.Download/versions/1.8.8/minecraft_server.1.8.8.jar
 
 ## 4. とりあえず起動します。
 $ ./minecraft.sh start
